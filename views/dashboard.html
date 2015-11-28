@@ -1,0 +1,183 @@
+<!-- BEGIN PAGE HEADER-->
+
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div ng-controller="DashboardController">
+
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<!-- BEGIN REGIONAL STATS PORTLET-->
+			<div class="portlet light ">
+				<div class="portlet-body">
+					<!-- BEGIN FORM-->
+			<form action="#" id="form-name" class="form-horizontal form-bordered" name="customer">
+				<div class="form-body">
+
+					<div class="form-group" ng-class="{ 'has-error' : customer.uid_number.$invalid && !customer.uid_number.$pristine }">
+						<label class="control-label col-md-3">UID : </label>
+						<div class="col-md-6">
+							<input type="text" name="uid_number" class="form-control" ng-maxlength="12" ng-minlength="12" ng-pattern="/^[0-9]*$/" ng-model="uid" placeholder="Enter Aadhar Card Number" ng-required="true" autofocus>
+						</div>
+						<!-- validation message start -->
+						<p ng-show="customer.uid_number.$error.minlength" class="help-block">Number should be 12 character</p>
+						<p ng-show="customer.uid_number.$error.maxlength" class="help-block">Number should not be more than 12 character</p>
+						<p ng-show="customer.uid_number.$error.pattern" class="help-block">String are not allowed</p>
+						<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.name.$invalid && !customer.name.$pristine }">
+						<label class="control-label col-md-3">Name : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="name" ng-model="name"  placeholder="Customer Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.name.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.name.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group">
+						<label class="control-label col-md-3">Date of Birth : </label>
+							<div class="col-md-6">
+								<div class="input-group input-medium date date-picker" data-date="10/2012" data-date-format="yyyy-mm-dd" data-date-viewmode="years" data-date-minviewmode="months">
+								<input type="text" class="form-control" readonly ng-model="yob" ng-required="true">
+								<span class="input-group-btn">
+								<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+								</span>
+								</div>
+							</div>
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.name.$invalid && !customer.name.$pristine }">
+						<label class="control-label col-md-3">Gender : </label>
+						<div class="col-md-6">
+								<input type="radio" class="form-control" name="gender" ng-model="gender" value="m" ng-required="true" autofocus > Male
+								<input type="radio" class="form-control" name="gender" ng-model="gender" value="f" ng-required="true" autofocus > Female
+						</div>
+							<!-- validation message start -->
+						<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.house.$invalid && !customer.house.$pristine }">
+						<label class="control-label col-md-3">House : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="house" ng-model="house"  placeholder="House Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.house.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.house.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.street.$invalid && !customer.street.$pristine }">
+						<label class="control-label col-md-3">Street : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="street" ng-model="street"  placeholder="Enter Street Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.street.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.street.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.location.$invalid && !customer.location.$pristine }">
+						<label class="control-label col-md-3">Location : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="location" ng-model="loc"  placeholder="Enter Location Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.location.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.location.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.dist.$invalid && !customer.dist.$pristine }">
+						<label class="control-label col-md-3">District : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="dist" ng-model="dist"  placeholder="Enter District Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.dist.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.dist.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.subdist.$invalid && !customer.subdist.$pristine }">
+						<label class="control-label col-md-3">District : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="subdist" ng-model="subdist"  placeholder="Enter SubDistrict Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.subdist.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.subdist.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.vtc.$invalid && !customer.vtc.$pristine }">
+						<label class="control-label col-md-3">Village/Town/City : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="vtc" ng-model="vtc"  placeholder="Enter Village/Town/City Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.vtc.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.vtc.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.po.$invalid && !customer.po.$pristine }">
+						<label class="control-label col-md-3">Post Office : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="po" ng-model="po"  placeholder="Enter Post Office Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.po.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.po.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.so.$invalid && !customer.so.$pristine }">
+						<label class="control-label col-md-3">Son Of : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="so" ng-model="so"  placeholder="Son of" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.so.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.so.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.state.$invalid && !customer.state.$pristine }">
+						<label class="control-label col-md-3">State : </label>
+						<div class="col-md-6">
+								<input type="text" class="form-control" name="state" ng-model="state"  placeholder="Enter State Name" ng-required="true" ng-minlength="3" ng-pattern="/^[a-zA-Z a-zA-Z]*$/" autofocus >
+							</div>
+							<!-- validation message start -->
+							<p ng-show="customer.state.$error.minlength" class="help-block">Username is too short.</p>
+							<p ng-show="customer.state.$error.pattern" class="help-block">Numbers are not allowed.</p>
+							<!-- validation message end -->
+					</div>
+					<div class="form-group" ng-class="{ 'has-error' : customer.pincode.$invalid && !customer.pincode.$pristine }">
+						<label class="control-label col-md-3">Pincode : </label>
+						<div class="col-md-6">
+							<input type="text" name="pincode" class="form-control" ng-maxlength="6" ng-minlength="6" ng-pattern="/^[0-9]*$/" ng-model="pc" placeholder="Pin Code Number" ng-required="true" autofocus>
+						</div>
+						<!-- validation message start -->
+						<p ng-show="customer.pincode.$error.minlength" class="help-block">Number should be 6 character</p>
+						<p ng-show="customer.pincode.$error.maxlength" class="help-block">Number should not be more than 6 character</p>
+						<p ng-show="customer.pincode.$error.pattern" class="help-block">String are not allowed</p>
+						<!-- validation message end -->
+					</div>
+					<div class="form-actions">
+					<div class="row">
+						<div class="col-md-offset-3 col-md-9">
+							<button type="button" class="swt_addbutton btn purple"  ng-disabled="customer.$invalid" ng-click="create(employee)"><i class="fa fa-check"></i> Submit</button>
+							<button type="button" class="btn default" ng-click="reset()">Reset</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!-- END FORM-->
+
+				</div>
+			</div>
+			<!-- END REGIONAL STATS PORTLET-->
+		</div>
+	</div>
+</div>
+<!-- END MAIN CONTENT -->
+<!-- BEGIN MAIN JS & CSS -->
+<script>
+	Index.init();
+	Tasks.initDashboardWidget();
+	ComponentsFormTools.init(); // init todo page
+	ComponentsPickers.init(); // init todo page
+</script>
+<!-- BEGIN MAIN JS & CSS -->
